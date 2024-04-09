@@ -70,10 +70,10 @@
             <div class="block-content block-content-full">
               <div class="py-4 text-center">
                 <h1 class="h3 fw-bold mb-1">
-                  Dashboard
+                  Output
                 </h1>
                 <h2 class="fs-base lh-base fw-medium text-muted mb-0">
-                  Welcome to your app, everything looks great!
+                  Diferença entre os dois CSVs
                 </h2>
               </div>
             </div>
@@ -82,37 +82,66 @@
 
           <!-- Dummy content -->
           <div class="row">
-            <div class="col-12">
+            <div class="col-sm-4">
               <div class="block block-rounded">
                 <div class="block-content">
-                  <div class="col-lg-8 col-xl-5 overflow-hidden" style="padding-bottom: 30px;">
-                    <form action="/upload" method="POST" enctype="multipart/form-data" class="js-validation">
-                    @method('POST')
-                    @csrf()
-                    @if ($errors->any())
-                      <div class="alert alert-danger">
-                        <ul>
-                          @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                          @endforeach
-                        </ul>
-                      </div>
+                  <h5>Linhas do ficheiro novo que são exactamente iguais ao ficheiro antigo</h5>
+                  <p>
+                    @if(isset($linhasDuplicadas))
+                      @foreach ($linhasDuplicadas as $indice =>$linha)
+                        @if($indice > 0)                   
+                            - {{ $indice + 1 }}  
+                        @endif
+                      @endforeach
                     @endif
-                        <div class="mb-4">
-                          <label class="form-label" for="csvAntigo">Importar csv com os dados antigos <span class="text-danger">*</span></label>
-                          <input class="form-control" type="file" id="csvAntigo" name="csvAntigo" accept=".csv" required>
-                        </div>
-                        <div class="mb-4">
-                          <label class="form-label" for="csvNovo">Importar csv dados mais recente <span class="text-danger">*</span></label>
-                          <input class="form-control" type="file" id="csvNovo" name="csvNovo"  accept=".csv" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
-                  </div>
+                  </p>
+                  <p class="text-center py-6"></p>    
+                  <a type="button" class="btn btn-info me-1 mb-3" href= "/media/csv/csv_duplicados.csv">
+                    <i class="fa fa-fw fa-download me-1"></i> Download
+                  </a>        
                 </div>
               </div>
             </div>
-          </div>
+            <div class="col-sm-4">
+              <div class="block block-rounded">
+                <div class="block-content">
+                <h5>Linhas inseridas novas no ficheiro novo</h5>
+                  <p>
+                  @if(isset($linhasInseridasNovas))
+                    @foreach ($linhasInseridasNovas as $indice =>$linha)
+                      @if($indice > 0)                   
+                         - {{ $indice + 1 }} 
+                      @endif
+                    @endforeach
+                    @endif
+                  </p>  
+                  <p class="text-center py-6"></p>
+                  <a type="button" class="btn btn-info me-1 mb-3" href= "/media/csv/csv_novosInseridos.csv">
+                    <i class="fa fa-fw fa-download me-1"></i> Download
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="block block-rounded">
+                <div class="block-content">
+                <h5>Linhas do ficheito antigo que foram actualizadas</h5>
+                  <p>
+                  @if(isset($linhasAtuliazadas))
+                    @foreach ($linhasAtuliazadas as $indice =>$linha)
+                      @if($indice > 0)                   
+                         - {{ $indice + 1 }} 
+                      @endif
+                    @endforeach
+                  @endif
+                  </p>  
+                  <p class="text-center py-6"></p>
+                  <a type="button" class="btn btn-info me-1 mb-3" href= "/media/csv/csv_linhas_actualidas.csv">
+                    <i class="fa fa-fw fa-download me-1"></i> Download
+                  </a>
+                </div>
+              </div>
+            </div>
           <!-- END Dummy content -->
         </div>
         <!-- END Page Content -->
