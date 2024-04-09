@@ -73,7 +73,7 @@
                   Output
                 </h1>
                 <h2 class="fs-base lh-base fw-medium text-muted mb-0">
-                  Diferença entre os dois CSVs
+                   Diferenças entre os dois CSVs!
                 </h2>
               </div>
             </div>
@@ -153,10 +153,10 @@
         <div class="content py-3">
           <div class="row fs-sm">
             <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
-              Crafted with <i class="fa fa-heart text-danger"></i> by <a class="fw-semibold" href="https://pixelcave.com" target="_blank">pixelcave</a>
+              Criado  <i class="fa fa-heart text-danger"></i> por  <a class="fw-semibold" href="https://josegoncalves.pt/" target="_blank">José Gonçalves</a>
             </div>
             <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-              <a class="fw-semibold" href="https://pixelcave.com/products/oneui" target="_blank">OneUI 5.9</a> &copy; <span data-toggle="year-copy"></span>
+              <a class="fw-semibold" ></a> <span data-toggle="year-copy"></span>
             </div>
           </div>
         </div>
